@@ -18,29 +18,30 @@ function App() {
   }
 
   const handleValue = (e) => {
-    if(e.target.value == ''){
+    if(e.target.value === ''){
       setValue('')
     }else{
       setValue(parseInt(e.target.value))
     }    
   }
 
-  const showImages = (quantity) => {            
+  const showImages = (quantity) => {  
+    console.log(quantity)
+    const arrayCeltas = []
     for (let i = 0; i < quantity.toFixed(0); i++) {
-      return(
-        <>
+      arrayCeltas.push(
         <div>
           <img src={logo} className="App-logo" alt="logo" />
         </div>
-        </>
       )
     }
+
+    return arrayCeltas
   }
 
   useEffect(() => {
     setError(false)    
-    setQuantity(0)    
-    console.log(value)
+    setQuantity(0)
     
   },[value])
 
@@ -67,8 +68,13 @@ function App() {
         </div>
 
         {error && <span>Não é possível comprar Celta algum :(</span>}          
-        {quantity > 0 && <span>Compraremos {quantity.toFixed(0)} Celtas</span>}        
-        {showImages(quantity)}
+        {quantity > 0 && <span>Você terá {quantity.toFixed(0)} Celtas</span>}  
+        {quantity === 30 && <p><b>Um verdadeiro amontoado de celtas</b></p>}  
+        
+        
+        <div className="images-celta-container">
+          {showImages(quantity)}
+        </div>
     </div>
   );
 }

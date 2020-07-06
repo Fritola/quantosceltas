@@ -78,3 +78,15 @@ form{
   }
 }
 
+.images-celta-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.images-celta-container div {
+  flex: 0 0 25%;
+  width: 25%;
+}
