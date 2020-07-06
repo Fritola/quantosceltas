@@ -25,7 +25,7 @@ function App() {
     }    
   }
 
-  const showImages = () => {    
+  const showImages = (quantity) => {            
     for (let i = 0; i < quantity.toFixed(0); i++) {
       return(
         <>
@@ -68,7 +68,7 @@ function App() {
 
         {error && <span>Não é possível comprar Celta algum :(</span>}          
         {quantity > 0 && <span>Compraremos {quantity.toFixed(0)} Celtas</span>}        
-        {showImages()}
+        {showImages(quantity)}
     </div>
   );
 }
